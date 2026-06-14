@@ -2,8 +2,10 @@ FROM python:3.10
 
 WORKDIR /app
 
-COPY . /app
+COPY . .
 
-RUN pip install scikit-learn joblib numpy
+RUN pip install -r requirements.txt
 
-CMD ["python", "test.py"]
+EXPOSE 5000
+
+CMD ["python", "app.py"]
