@@ -1,17 +1,25 @@
 import joblib
 from sklearn.datasets import fetch_olivetti_faces
+from sklearn.model_selection import train_test_split
+from sklearn.metrics import accuracy_score
 
-# Load model
-model = joblib.load("savedmodel.pth")
-
-# Load SAME dataset
+# Load dataset
 data = fetch_olivetti_faces()
 X = data.data
+y = data.target
 
-# Take one sample
-sample = X[0].reshape(1, -1)
+# Same split as training
+X_train, X_test, y_train, y_test = train_test_split(
+    X, y, test_size=0.3, random_state=42
+)
 
-# Prediction
-prediction = model.predict(sample)
+# Load saved model
+model = joblib.load("savedmodel.pth")
 
-print("Prediction:", prediction)
+# Predict
+y_pred = model.predict(X_test)
+
+# Accuracy
+accuracy = accuracy_score(y_test, y_pred)
+
+print("Test Accuracy:", accuracy)
