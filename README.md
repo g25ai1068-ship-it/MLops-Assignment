@@ -121,3 +121,29 @@ docker run -p 5000:5000 mlops-app
 
 Manish Kumar
 Roll No: G25AI1068
+
+## Current Status
+
+Completed:
+- Git Repository Setup
+- Branch Management (main, dev, docker_cicd)
+- Model Training (DecisionTreeClassifier)
+- Model Testing
+- GitHub Actions CI/CD Workflow
+- Flask Application
+- Dockerfile
+- Requirements File
+
+Pending due to virtualization issue:
+- Docker Image Build
+- Docker Hub Push
+- Kubernetes Deployment
+## Challenges Faced
+
+During Docker setup, Docker Desktop could not start because virtualization support was not available on the system.
+
+Observed error:
+
+```text
+Virtualization support not detected
+Docker Desktop failed to start because virtualisation support wasn’t detected
